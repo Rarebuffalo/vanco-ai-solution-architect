@@ -1,0 +1,38 @@
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache & compiled files
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE/Editor configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+
+# Large datasets & generated prediction CSVs
+grocery_forecasting/data/train.csv
+grocery_forecasting/data/transactions.csv
+grocery_forecasting/data/test.csv
+grocery_forecasting/data/oil.csv
+grocery_forecasting/data/stores.csv
+grocery_forecasting/data/holidays_events.csv
+grocery_forecasting/data/submission.csv
+
+# RAG PDF files
+hybrid_rag/data/*.pdf
+
+# Object detection models & heavy run weights
+yolov8n.pt
+runs/
+**/runs/
