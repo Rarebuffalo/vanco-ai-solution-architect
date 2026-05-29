@@ -181,4 +181,5 @@ Navigate to **`http://localhost:8080`** in your browser.
   * **Knowledge Graph**: traversals (e.g. Coulomb's Law Topic -> Coulomb Formula -> Page 9).
   * **Merged RRF Prompt**: The exact compiled prompt context sent to the LLM.
 
-*Note: The LLM generation connects to the Gemini API if `GEMINI_API_KEY` is present in your environment variables. If absent, the system runs in an offline mock generator mode, using the retrieved context to provide cited physics answers, making it fully testable without API tokens.*
+**Offline Fallback Mode:** If no `GEMINI_API_KEY` is exported in the environment, the server automatically runs in offline simulation mode. It still executes the entire hybrid retrieval pipeline (matching chunks, walking the NetworkX graph, and performing RRF ranking) but returns a cited, mock response built from the retrieved page contexts. This ensures the reviewer can test the application end-to-end without needing to configure API keys.
+
