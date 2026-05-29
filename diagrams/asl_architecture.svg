@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <!-- Definitions for Gradients and Filters -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="accentGreen" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#34d399" />
+    </linearGradient>
+    <linearGradient id="accentOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#fbbf24" />
+    </linearGradient>
+    <linearGradient id="accentRed" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444" />
+      <stop offset="100%" stop-color="#f87171" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#4b5563" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="20" fill="url(#bgGrad)" />
+
+  <!-- Title -->
+  <text x="40" y="50" font-family="'Outfit', sans-serif" font-size="22" font-weight="800" fill="#f3f4f6">American Sign Language Detection</text>
+  <text x="40" y="75" font-family="'Outfit', sans-serif" font-size="12" font-weight="500" fill="#9ca3af">USE CASE 2 - DATA PIPELINE AND DUAL-MODE DEPLOYMENT</text>
+
+  <!-- Group 1: Dataset Creation -->
+  <g transform="translate(40, 120)" filter="url(#shadow)">
+    <rect width="180" height="320" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+    <rect width="180" height="5" rx="2.5" fill="url(#accentGreen)" />
+    <text x="20" y="30" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" fill="#f3f4f6">1. Data Prep</text>
+    
+    <g transform="translate(15, 60)">
+      <rect width="150" height="50" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="20" font-family="'Outfit', sans-serif" font-size="11" fill="#34d399" font-weight="700">Webcam Capture</text>
+      <text x="12" y="36" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">8 classes / 20 images each</text>
+    </g>
+    <g transform="translate(15, 125)">
+      <rect width="150" height="50" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="20" font-family="'Outfit', sans-serif" font-size="11" fill="#34d399" font-weight="700">YOLO Labeling</text>
+      <text x="12" y="36" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Tight hand bounding boxes</text>
+    </g>
+    <g transform="translate(15, 190)">
+      <rect width="150" height="50" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="20" font-family="'Outfit', sans-serif" font-size="11" fill="#34d399" font-weight="700">Data Augment</text>
+      <text x="12" y="36" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Gaussian blur, light, rotate</text>
+    </g>
+    <g transform="translate(15, 255)">
+      <rect width="150" height="50" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="20" font-family="'Outfit', sans-serif" font-size="11" fill="#34d399" font-weight="700">YOLOv8n Training</text>
+      <text x="12" y="36" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">runs/detect/train/weights/</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -> 2 & 3 -->
+  <path d="M 220,280 L 255,280 L 255,210 L 290,210" fill="none" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)" />
+  <path d="M 255,280 L 255,370 L 290,370" fill="none" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Group 2: Mode A (Local Desktop) -->
+  <g transform="translate(300, 120)" filter="url(#shadow)">
+    <rect width="460" height="150" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+    <rect width="460" height="5" rx="2.5" fill="url(#accentOrange)" />
+    <text x="20" y="28" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" fill="#f3f4f6">Mode A: Local Desktop (demo.py)</text>
+    
+    <g transform="translate(20, 50)">
+      <rect width="100" height="70" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="10" y="22" font-family="'Outfit', sans-serif" font-size="11" fill="#fbbf24" font-weight="700">cv2.VideoCapture</text>
+      <text x="10" y="38" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Local Webcam</text>
+      <text x="10" y="52" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">stream (0)</text>
+    </g>
+    
+    <line x1="120" y1="85" x2="160" y2="85" stroke="#4b5563" stroke-width="1.5" marker-end="url(#arrow)" />
+    
+    <g transform="translate(170, 50)">
+      <rect width="120" height="70" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="10" y="22" font-family="'Outfit', sans-serif" font-size="11" fill="#fbbf24" font-weight="700">YOLOv8 CPU</text>
+      <text x="10" y="38" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Inference loop</text>
+      <text x="10" y="52" font-family="'Outfit', sans-serif" font-size="9" fill="#34d399">Latency &lt; 15ms</text>
+    </g>
+    
+    <line x1="290" y1="85" x2="330" y2="85" stroke="#4b5563" stroke-width="1.5" marker-end="url(#arrow)" />
+    
+    <g transform="translate(340, 50)">
+      <rect width="100" height="70" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="10" y="22" font-family="'Outfit', sans-serif" font-size="11" fill="#fbbf24" font-weight="700">cv2.imshow</text>
+      <text x="10" y="38" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Display Window</text>
+      <text x="10" y="52" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">with boxes</text>
+    </g>
+  </g>
+
+  <!-- Group 3: Mode B (Headless Server Fallback) -->
+  <g transform="translate(300, 290)" filter="url(#shadow)">
+    <rect width="460" height="150" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+    <rect width="460" height="5" rx="2.5" fill="url(#accentRed)" />
+    <text x="20" y="28" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" fill="#f3f4f6">Mode B: Remote Headless Server (server.py)</text>
+    
+    <g transform="translate(20, 50)">
+      <rect width="110" height="70" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="10" y="22" font-family="'Outfit', sans-serif" font-size="11" fill="#f87171" font-weight="700">Browser Client</text>
+      <text x="10" y="38" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">getUserMedia</text>
+      <text x="10" y="52" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">HTML5 Canvas</text>
+    </g>
+    
+    <!-- Bidirectional Arrows for HTTP request/response -->
+    <path d="M 130,75 L 160,75" stroke="#4b5563" stroke-width="1.5" marker-end="url(#arrow)" />
+    <path d="M 160,95 L 130,95" stroke="#4b5563" stroke-width="1.5" marker-end="url(#arrow)" />
+    <text x="132" y="65" font-family="monospace" font-size="8" fill="#9ca3af">POST</text>
+    <text x="132" y="110" font-family="monospace" font-size="8" fill="#9ca3af">JSON</text>
+    
+    <g transform="translate(170, 50)">
+      <rect width="120" height="70" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="10" y="22" font-family="'Outfit', sans-serif" font-size="11" fill="#f87171" font-weight="700">HTTP Server</text>
+      <text x="10" y="38" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Built-in Python</text>
+      <text x="10" y="52" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">BaseHTTPHandler</text>
+    </g>
+    
+    <line x1="290" y1="85" x2="330" y2="85" stroke="#4b5563" stroke-width="1.5" marker-end="url(#arrow)" />
+    
+    <g transform="translate(340, 50)">
+      <rect width="100" height="70" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="10" y="22" font-family="'Outfit', sans-serif" font-size="11" fill="#f87171" font-weight="700">YOLOv8 CPU</text>
+      <text x="10" y="38" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Inference on</text>
+      <text x="10" y="52" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">POSTed frames</text>
+    </g>
+  </g>
+</svg>

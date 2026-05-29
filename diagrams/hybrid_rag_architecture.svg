@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%">
+  <!-- Definitions for Gradients and Filters -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+    <linearGradient id="accentPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#a78bfa" />
+    </linearGradient>
+    <linearGradient id="accentPink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#f472b6" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#6b7280" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="550" rx="20" fill="url(#bgGrad)" />
+
+  <!-- Title -->
+  <text x="40" y="45" font-family="'Outfit', sans-serif" font-size="22" font-weight="800" fill="#f3f4f6">Hybrid Retrieval-Augmented Generation (RAG) Architecture</text>
+  <text x="40" y="70" font-family="'Outfit', sans-serif" font-size="12" font-weight="500" fill="#9ca3af">USE CASE 3 - MULTI-LAYER RETRIEVAL, RECIPROCAL RANK FUSION, AND OBSERVED GROUNDING</text>
+
+  <!-- Section: Ingestion -->
+  <g transform="translate(40, 100)" filter="url(#shadow)">
+    <rect width="180" height="390" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" />
+    <rect width="180" height="5" rx="2.5" fill="url(#accentCyan)" />
+    <text x="20" y="30" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" fill="#f3f4f6">1. Ingestion Pipeline</text>
+    
+    <g transform="translate(15, 60)">
+      <rect width="150" height="60" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="20" font-family="'Outfit', sans-serif" font-size="11" fill="#22d3ee" font-weight="700">NCERT Physics PDF</text>
+      <text x="12" y="36" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Extract text, preserve pages,</text>
+      <text x="12" y="48" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">sections &amp; equations</text>
+    </g>
+    
+    <g transform="translate(15, 140)">
+      <rect width="150" height="60" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="20" font-family="'Outfit', sans-serif" font-size="11" fill="#22d3ee" font-weight="700">Heading-Aware Chunking</text>
+      <text x="12" y="36" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Split by section boundary,</text>
+      <text x="12" y="48" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">max 800 char, 150 overlap</text>
+    </g>
+    
+    <g transform="translate(15, 220)">
+      <rect width="150" height="60" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="20" font-family="'Outfit', sans-serif" font-size="11" fill="#22d3ee" font-weight="700">Formula Sanitizer</text>
+      <text x="12" y="36" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">LaTeX regex filters prevent</text>
+      <text x="12" y="48" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">garbled symbols</text>
+    </g>
+    
+    <g transform="translate(15, 300)">
+      <rect width="150" height="60" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="20" font-family="'Outfit', sans-serif" font-size="11" fill="#22d3ee" font-weight="700">Metadata Tagging</text>
+      <text x="12" y="36" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Append Chapter, Section &amp;</text>
+      <text x="12" y="48" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Page key to each chunk</text>
+    </g>
+  </g>
+
+  <!-- Connect Ingestion to Indexes -->
+  <path d="M 220,295 L 245,295 L 245,170 L 270,170" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 245,295 L 270,295" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 245,295 L 245,420 L 270,420" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Index 1: Vector -->
+  <g transform="translate(280, 100)" filter="url(#shadow)">
+    <rect width="180" height="110" rx="12" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" />
+    <rect width="180" height="4" rx="2" fill="url(#accentPurple)" />
+    <text x="15" y="25" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="#f3f4f6">Layer A: Semantic Vector DB</text>
+    <text x="15" y="45" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">Engine: FAISS / Cosine Similarity</text>
+    <text x="15" y="60" font-family="'Outfit', sans-serif" font-size="9" fill="#818cf8">Matches context concepts and</text>
+    <text x="15" y="72" font-family="'Outfit', sans-serif" font-size="9" fill="#818cf8">conceptual sentence matches</text>
+    <rect x="15" y="85" width="60" height="15" rx="3" fill="rgba(99,102,241,0.1)" />
+    <text x="20" y="96" font-family="'Outfit', sans-serif" font-size="8" fill="#818cf8" font-weight="600">FAISS Index</text>
+  </g>
+
+  <!-- Index 2: Keyword BM25 -->
+  <g transform="translate(280, 225)" filter="url(#shadow)">
+    <rect width="180" height="110" rx="12" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" />
+    <rect width="180" height="4" rx="2" fill="url(#accentPurple)" />
+    <text x="15" y="25" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="#f3f4f6">Layer B: Lexical Keyword DB</text>
+    <text x="15" y="45" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">Engine: BM25 (First-Principles)</text>
+    <text x="15" y="60" font-family="'Outfit', sans-serif" font-size="9" fill="#818cf8">Matches exact keywords, variables,</text>
+    <text x="15" y="72" font-family="'Outfit', sans-serif" font-size="9" fill="#818cf8">formulas, and names (e.g. Lenz, Ohm)</text>
+    <rect x="15" y="85" width="70" height="15" rx="3" fill="rgba(99,102,241,0.1)" />
+    <text x="20" y="96" font-family="'Outfit', sans-serif" font-size="8" fill="#818cf8" font-weight="600">BM25 Indexer</text>
+  </g>
+
+  <!-- Index 3: Knowledge Graph -->
+  <g transform="translate(280, 350)" filter="url(#shadow)">
+    <rect width="180" height="110" rx="12" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" />
+    <rect width="180" height="4" rx="2" fill="url(#accentPurple)" />
+    <text x="15" y="25" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="#f3f4f6">Layer C: Knowledge Graph</text>
+    <text x="15" y="45" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">Engine: NetworkX / custom walk</text>
+    <text x="15" y="60" font-family="'Outfit', sans-serif" font-size="9" fill="#818cf8">Resolves Topic-Formula-Page links,</text>
+    <text x="15" y="72" font-family="'Outfit', sans-serif" font-size="9" fill="#818cf8">retrieves cross-chapter formulas</text>
+    <rect x="15" y="85" width="85" height="15" rx="3" fill="rgba(99,102,241,0.1)" />
+    <text x="20" y="96" font-family="'Outfit', sans-serif" font-size="8" fill="#818cf8" font-weight="600">NetworkX Graph</text>
+  </g>
+
+  <!-- Connect Indices to RRF Merging -->
+  <path d="M 460,155 L 495,155 L 495,250 L 520,250" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+  <path d="M 460,280 L 520,280" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+  <!-- Graph goes to context expander directly -->
+  <path d="M 460,405 L 690,405 L 690,345" fill="none" stroke="#a855f7" stroke-width="1.5" stroke-dasharray="4" marker-end="url(#arrow)" />
+
+  <!-- RRF Merging Card -->
+  <g transform="translate(530, 215)" filter="url(#shadow)">
+    <rect width="120" height="110" rx="12" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" />
+    <rect width="120" height="4" rx="2" fill="url(#accentPink)" />
+    <text x="12" y="22" font-family="'Outfit', sans-serif" font-size="11" font-weight="700" fill="#f3f4f6">Rank Fusion</text>
+    <text x="12" y="42" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Formula: RRF</text>
+    <text x="12" y="55" font-family="monospace" font-size="8" fill="#ec4899">1/(60+r_v) + 1/(60+r_k)</text>
+    <text x="12" y="75" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Fuses ranks of</text>
+    <text x="12" y="87" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">vector and keyword</text>
+  </g>
+
+  <!-- Connect RRF and Graph to Compiler -->
+  <path d="M 650,270 L 670,270" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- Prompt Compiler Card -->
+  <g transform="translate(680, 215)" filter="url(#shadow)">
+    <rect width="180" height="110" rx="12" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" />
+    <rect width="180" height="4" rx="2" fill="url(#accentCyan)" />
+    <text x="15" y="22" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="#f3f4f6">Prompt Compiler</text>
+    <text x="15" y="42" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">1. Fused Text Chunks</text>
+    <text x="15" y="54" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">2. Injected Graph Formulas</text>
+    <text x="15" y="66" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">3. Strict Grounding Prompts</text>
+    <text x="15" y="80" font-family="'Outfit', sans-serif" font-size="9" fill="#34d399">Output: Grounded Context</text>
+    <text x="15" y="92" font-family="'Outfit', sans-serif" font-size="9" fill="#34d399">  + Strict Citations Rule</text>
+  </g>
+
+  <!-- Connect Compiler to LLM -->
+  <line x1="770" y1="330" x2="770" y2="370" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+
+  <!-- LLM Generation Card -->
+  <g transform="translate(680, 380)" filter="url(#shadow)">
+    <rect width="180" height="110" rx="12" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" />
+    <rect width="180" height="4" rx="2" fill="url(#accentCyan)" />
+    <text x="15" y="22" font-family="'Outfit', sans-serif" font-size="12" font-weight="700" fill="#f3f4f6">LLM Inference</text>
+    <text x="15" y="42" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">Engine: Gemini 1.5 Flash</text>
+    <text x="15" y="55" font-family="'Outfit', sans-serif" font-size="9" fill="#818cf8">Runs in Online Mode or</text>
+    <text x="15" y="67" font-family="'Outfit', sans-serif" font-size="9" fill="#818cf8">Grounded Offline Fallback</text>
+    <text x="15" y="85" font-family="'Outfit', sans-serif" font-size="10" fill="#34d399" font-weight="600">Returns: Cited Answer</text>
+    <text x="15" y="97" font-family="'Outfit', sans-serif" font-size="9" fill="#9ca3af">  e.g. [Page X, Chapter Y]</text>
+  </g>
+
+  <!-- User Input Query (Top Right) -->
+  <g transform="translate(530, 100)" filter="url(#shadow)">
+    <rect width="330" height="70" rx="12" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+    <text x="15" y="25" font-family="'Outfit', sans-serif" font-size="10" font-weight="700" fill="#818cf8">INPUT QUERY</text>
+    <text x="15" y="48" font-family="'Outfit', sans-serif" font-size="12" fill="#f3f4f6">"Explain Electromagnetic Induction &amp; state its formula"</text>
+  </g>
+
+  <!-- Connect User Query to Indexes -->
+  <path d="M 530,135 L 505,135 L 505,80 L 370,80 L 370,95" fill="none" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+</svg>

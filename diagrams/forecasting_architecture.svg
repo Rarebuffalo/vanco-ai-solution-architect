@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <!-- Definitions for Gradients and Filters -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1f2937" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#111827" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="accentBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#60a5fa" />
+    </linearGradient>
+    <linearGradient id="accentIndigo" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#818cf8" />
+    </linearGradient>
+    <linearGradient id="accentPurple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="6" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#4b5563" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="20" fill="url(#bgGrad)" />
+
+  <!-- Title -->
+  <text x="40" y="50" font-family="'Outfit', sans-serif" font-size="22" font-weight="800" fill="#f3f4f6">Grocery Sales Forecasting Pipeline</text>
+  <text x="40" y="75" font-family="'Outfit', sans-serif" font-size="12" font-weight="500" fill="#9ca3af">USE CASE 1 - SYSTEM FLOW &amp; LEAKAGE PREVENTION</text>
+
+  <!-- Group 1: Raw Data -->
+  <g transform="translate(40, 120)" filter="url(#shadow)">
+    <rect width="180" height="320" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+    <rect width="180" height="5" rx="2.5" fill="url(#accentBlue)" />
+    <text x="20" y="30" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#f3f4f6">1. Raw Data Input</text>
+    
+    <g transform="translate(15, 60)">
+      <rect width="150" height="40" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="15" y="24" font-family="'Outfit', sans-serif" font-size="12" fill="#e5e7eb" font-weight="600">sales.csv / test.csv</text>
+    </g>
+    <g transform="translate(15, 110)">
+      <rect width="150" height="40" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="15" y="24" font-family="'Outfit', sans-serif" font-size="12" fill="#e5e7eb" font-weight="600">stores.csv</text>
+    </g>
+    <g transform="translate(15, 160)">
+      <rect width="150" height="40" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="15" y="24" font-family="'Outfit', sans-serif" font-size="12" fill="#e5e7eb" font-weight="600">oil.csv (Oil Prices)</text>
+    </g>
+    <g transform="translate(15, 210)">
+      <rect width="150" height="40" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="15" y="24" font-family="'Outfit', sans-serif" font-size="12" fill="#e5e7eb" font-weight="600">holidays_events.csv</text>
+    </g>
+    <g transform="translate(15, 260)">
+      <rect width="150" height="40" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" opacity="0.5" />
+      <text x="15" y="24" font-family="'Outfit', sans-serif" font-size="12" fill="#9ca3af" font-weight="600">transactions.csv</text>
+    </g>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="220" y1="280" x2="290" y2="280" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Group 2: Features -->
+  <g transform="translate(300, 120)" filter="url(#shadow)">
+    <rect width="200" height="320" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+    <rect width="200" height="5" rx="2.5" fill="url(#accentIndigo)" />
+    <text x="20" y="30" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#f3f4f6">2. Feature Engineering</text>
+    
+    <g transform="translate(15, 60)">
+      <rect width="170" height="50" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="22" font-family="'Outfit', sans-serif" font-size="12" fill="#818cf8" font-weight="700">Time Lag Features</text>
+      <text x="12" y="38" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">Shift of &gt;= 16 days (No Leakage)</text>
+    </g>
+    <g transform="translate(15, 120)">
+      <rect width="170" height="50" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="22" font-family="'Outfit', sans-serif" font-size="12" fill="#818cf8" font-weight="700">Rolling Windows</text>
+      <text x="12" y="38" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">7, 14, 28-day stats of lags</text>
+    </g>
+    <g transform="translate(15, 180)">
+      <rect width="170" height="50" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="22" font-family="'Outfit', sans-serif" font-size="12" fill="#818cf8" font-weight="700">Holiday &amp; Event Mapping</text>
+      <text x="12" y="38" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">National/Regional/Local flags</text>
+    </g>
+    <g transform="translate(15, 240)">
+      <rect width="170" height="50" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="22" font-family="'Outfit', sans-serif" font-size="12" fill="#818cf8" font-weight="700">Oil Trend Features</text>
+      <text x="12" y="38" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">Linear interpolation &amp; rolling mean</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="500" y1="280" x2="570" y2="280" stroke="#4b5563" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Group 3: Validation & Model -->
+  <g transform="translate(580, 120)" filter="url(#shadow)">
+    <rect width="180" height="320" rx="16" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
+    <rect width="180" height="5" rx="2.5" fill="url(#accentPurple)" />
+    <text x="20" y="30" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#f3f4f6">3. Train &amp; Validate</text>
+    
+    <g transform="translate(15, 60)">
+      <rect width="150" height="70" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="22" font-family="'Outfit', sans-serif" font-size="12" fill="#c084fc" font-weight="700">Validation Split</text>
+      <text x="12" y="38" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">Chronological Out-of-Sample</text>
+      <text x="12" y="52" font-family="'Outfit', sans-serif" font-size="10" fill="#34d399">Aug 1 - Aug 15, 2017</text>
+    </g>
+    <g transform="translate(15, 145)">
+      <rect width="150" height="55" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="22" font-family="'Outfit', sans-serif" font-size="12" fill="#c084fc" font-weight="700">LightGBM Model</text>
+      <text x="12" y="38" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">Early stopping, log-sales</text>
+    </g>
+    <g transform="translate(15, 215)">
+      <rect width="150" height="85" rx="8" fill="#111827" stroke="rgba(255,255,255,0.05)" />
+      <text x="12" y="22" font-family="'Outfit', sans-serif" font-size="12" fill="#c084fc" font-weight="700">Error Evaluation</text>
+      <text x="12" y="38" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">RMSLE by store</text>
+      <text x="12" y="52" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">RMSLE by family</text>
+      <text x="12" y="66" font-family="'Outfit', sans-serif" font-size="10" fill="#9ca3af">Holiday residual check</text>
+    </g>
+  </g>
+</svg>
